@@ -16,10 +16,15 @@ def err_in_response(status):
         print("Please valid city name")
 
 
+# you can use this below free weather api
+# https://api.openweathermap.org/data/2.5/weather?appid=2700cb77f169014b47963479d60e46c1
 def get_weather(city):
     global recent_city
-    url = 'https://api.weatherapi.com/v1/current.json?'
+    # url = 'https://api.openweathermap.org/data/2.5/weather?' # this is openweatherapi free of cost
+    url = 'https://api.weatherapi.com/v1/current.json?'  # valid for 10 days
+    # appid = 2700cb77f169014b47963479d60e46c1 # this is for openweatherapi
     apikey = '84196dcb99134d34baf163255240501'
+    # params = 'appid=' + appid + '&q=' + city
     params = '&key=' + apikey + '&q=' + city
     h = httplib2.Http('.cache')
     response, content = h.request(url + params)
